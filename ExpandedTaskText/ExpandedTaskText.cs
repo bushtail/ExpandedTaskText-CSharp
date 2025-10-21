@@ -44,9 +44,6 @@ public class ExpandedTaskText(
 {
     private List<QuestInfo>? _questInfos;
     private readonly Dictionary<MongoId, string> _questDescriptionCache = [];
-
-    private const string CollectorRequired = "This quest is required for Collector\n";
-    private const string LightkeeperRequired = "This quest is required for Lightkeeper\n";
     
     public async Task OnLoad()
     {
@@ -99,16 +96,14 @@ public class ExpandedTaskText(
     private string BuildNewDescription(QuestInfo info, string originalDescription)
     {
         var sb = new StringBuilder();
-        
-        if (info.KappaRequired)
-        {
-            sb.Append(CollectorRequired);
-        }
 
-        if (info.LightkeeperRequired)
-        {
-            sb.Append(LightkeeperRequired);
-        }
+        sb.Append(info.KappaRequired
+            ? "This quest is required for Collector\n"
+            : "This quest is not required for Collector\n");
+
+        sb.Append(info.LightkeeperRequired
+            ? "This quest is required for Lightkeeper\n"
+            : "This quest is not required for Lightkeeper\n");
 
         sb.Append(GetKeyInfoForQuest(info));
         sb.Append("\n\n");
@@ -123,8 +118,6 @@ public class ExpandedTaskText(
     private string GetNextQuests(MongoId currentQuestId)
     {
         var quests = databaseService.GetQuests();
-        var locales = localeService.GetLocaleDb();
-        
         var result = new List<string>();
         
         foreach (var (qid, quest) in quests)
@@ -145,7 +138,7 @@ public class ExpandedTaskText(
                 
                 if (condition.ConditionType == "Quest" && condition.Target.Item == currentQuestId.ToString())
                 {
-                    var nextQuestName = locales[$"{qid} name"];
+                    var nextQuestName = GetLocale($"{qid} name");
                     result.Add($"\n\t{nextQuestName}");
                 }
             }
