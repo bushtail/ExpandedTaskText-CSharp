@@ -10,4 +10,28 @@
       <PackageReference Include="SPTarkov.Server.Core" Version="4.0.1" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <TarkovDir Condition=" '$(TarkovDir)' == '' ">$(SolutionDir)..\..\</TarkovDir>
+        <SptModDir>$(TarkovDir)SPT\user\mods\</SptModDir>
+    </PropertyGroup>
+
+    <Target Name="CopyToServer" AfterTargets="PostBuildEvent">
+        <ItemGroup>
+            <OutputDLL Include="$(ProjectDir)$(OutDir)$(TargetName).dll" />
+            <Resources Include="$(ProjectDir)Resources\**\*.*" />
+        </ItemGroup>
+
+        <!-- Copies the output dll -->
+        <Copy
+                SourceFiles="@(OutputDLL);"
+                DestinationFolder="$(SptModDir)\ExpandedTaskText" />
+
+        <!-- Copies the resources -->
+        <Copy
+                SourceFiles="@(Resources);"
+                DestinationFolder="$(SptModDir)\ExpandedTaskText\Resources\%(RecursiveDir)"
+        />
+        
+    </Target>
+    
 </Project>
