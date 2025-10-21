@@ -1,36 +1,17 @@
 ﻿using System.Diagnostics;
-using System.Reflection;
 using System.Text;
-using System.Text.Json;
+using ExpandedTaskText.Models;
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Models.Common;
-using SPTarkov.Server.Core.Models.Spt.Mod;
 using SPTarkov.Server.Core.Models.Utils;
 using SPTarkov.Server.Core.Services;
 using SPTarkov.Server.Core.Utils;
 using SPTarkov.Server.Core.Utils.Json;
-using Range = SemanticVersioning.Range;
-using Version = SemanticVersioning.Version;
+using Path = System.IO.Path;
+
 
 namespace ExpandedTaskText;
-
-public record EttMetadata : AbstractModMetadata
-{
-    public override string ModGuid { get; init; } = "com.cj.ett";
-    public override string Name { get; init; } = "Expanded Task Text";
-    public override string Author { get; init; } = "Cj";
-    public override List<string>? Contributors { get; init; }
-    public override Version Version { get; init; } = new("2.0.0");
-    public override Range SptVersion { get; init; } = new("~4.0");
-    public override List<string>? Incompatibilities { get; init; }
-    public override Dictionary<string, Range>? ModDependencies { get; init; }
-    public override string? Url { get; init; }
-    public override bool? IsBundleMod { get; init; }
-    public override string License { get; init; } = "MIT";
-    
-    public static readonly string ResourcesDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "Resources");
-}
 
 // Load after EVERYTHING so all custom quests exist
 [Injectable(TypePriority = int.MaxValue)]
@@ -43,17 +24,37 @@ public class ExpandedTaskText(
     ) : IOnLoad
 {
     private List<QuestInfo>? _questInfos;
-    private readonly Dictionary<MongoId, string> _questDescriptionCache = [];
+    private Dictionary<MongoId, GunsmithInfo>? _gunsmithInfos;
+
+    private Dictionary<MongoId, string> _questDescriptionCache = [];
     
     public async Task OnLoad()
     {
         var sw = Stopwatch.StartNew();
-        logger.Info("[Expanded Task Text] Loading please wait...");
+        var cachePath = Path.Combine(EttMetadata.ResourcesDirectory, "descriptionCache.json");
+
+        if (File.Exists(cachePath))
+        {
+            var text = await File.ReadAllTextAsync(cachePath);
+            _questDescriptionCache = jsonUtil.Deserialize<Dictionary<MongoId, string>>(text)!;
+            
+            logger.Info("[Expanded Task Text] loading please wait...");
+        }
+        else
+        {
+            logger.Info("[Expanded Task Text] First time loading, subsequent loading times will be significantly lower. Please wait...");
+        }
         
         var questInfoText = await fileUtil.ReadFileAsync(Path.Combine(EttMetadata.ResourcesDirectory, "QuestInfo.json"));
         _questInfos = jsonUtil.Deserialize<List<QuestInfo>>(questInfoText);
         
+        var gunsmithText = await fileUtil.ReadFileAsync(Path.Combine(EttMetadata.ResourcesDirectory, "GunsmithInfo.json"));
+        _gunsmithInfos = jsonUtil.Deserialize<Dictionary<MongoId, GunsmithInfo>>(gunsmithText);
+        
         await UpdateAllTaskText();
+        
+        var cacheText = jsonUtil.Serialize(_questDescriptionCache);
+        await fileUtil.WriteFileAsync(cachePath, cacheText!);
         
         logger.Success($"[Expanded Task Text] Completed loading in {(sw.ElapsedMilliseconds / 1000f):F2} seconds.");
     }
@@ -109,6 +110,12 @@ public class ExpandedTaskText(
         sb.Append("\n\n");
         sb.Append(GetNextQuests(info.Id));
         sb.Append("\n\n");
+
+        if (_gunsmithInfos?.TryGetValue(info.Id, out var gunsmithInfo) ?? false)
+        {
+            sb.Append(GetGunsmithPartsList(info.Id, gunsmithInfo));
+            sb.Append("\n\n");
+        }
         
         sb.Append(originalDescription);
         
@@ -196,13 +203,70 @@ public class ExpandedTaskText(
         return sb.ToString();
     }
 
+    private Dictionary<MongoId, int> GetAllTraderLoyalLevelItems()
+    {
+        var traders = databaseService.GetTraders();
+        var result = new Dictionary<MongoId, int>();
+
+        foreach (var (_, trader) in traders)
+        {
+            foreach (var (id, level) in trader?.Assort?.LoyalLevelItems ?? [])
+            {
+                result.Add(id, level);
+            }
+        }
+        
+        return result;
+    }
+    
+    private string GetGunsmithPartsList(MongoId mongoId, GunsmithInfo info)
+    {
+        var loyaltyLevelItems = GetAllTraderLoyalLevelItems();
+        var traders = databaseService.GetTraders();
+        
+        var sb = new StringBuilder();
+        const string requiredDurability = "Required minimum gun durability: 60";
+        sb.Append(requiredDurability);
+        
+        foreach (var partId in info.RequiredParts)
+        {
+            sb.Append($"\n{GetLocale($"{partId.ToString()} Name")}");
+
+            foreach (var (tid, trader) in traders)
+            {
+                if (trader?.Assort?.Items is null)
+                {
+                    continue;
+                }
+                
+                var assortItems = trader.Assort.Items.ToArray();
+
+                foreach (var item in assortItems)
+                {
+                    if (item.Template != partId)
+                    {
+                        continue;
+                    }
+                    
+                    if (loyaltyLevelItems.TryGetValue(item.Id, out var loyaltyLevel))
+                    {
+                        var traderName = GetLocale($"{tid.ToString()} Nickname");
+                        sb.Append($"\n\tSold by {traderName} LL {loyaltyLevel}");
+                    }
+                }
+            }
+        }
+
+        return sb.ToString();
+    }
+
     private string GetLocale(string key)
     {
         var locales = localeService.GetLocaleDb();
 
         if (!locales.TryGetValue(key, out var locale))
         {
-            logger.Error($"[Expanded Task Text] Could not find locale for `{key}`]");
+            logger.Error($"[Expanded Task Text] Could not find locale for `{key}`");
             
             return string.Empty;
         }

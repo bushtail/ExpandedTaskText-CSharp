@@ -9,21 +9,29 @@
     <ItemGroup>
       <PackageReference Include="SPTarkov.Server.Core" Version="4.0.1" />
     </ItemGroup>
-
+    
     <PropertyGroup>
         <TarkovDir Condition=" '$(TarkovDir)' == '' ">$(SolutionDir)..\..\</TarkovDir>
+        <SptPath>$(TarkovDir)\SPT</SptPath>
         <SptModDir>$(TarkovDir)SPT\user\mods\</SptModDir>
     </PropertyGroup>
 
     <Target Name="CopyToServer" AfterTargets="PostBuildEvent">
         <ItemGroup>
             <OutputDLL Include="$(ProjectDir)$(OutDir)$(TargetName).dll" />
+            <OutputPdb Include="$(ProjectDir)$(OutDir)$(TargetName).pdb" />
             <Resources Include="$(ProjectDir)Resources\**\*.*" />
         </ItemGroup>
 
         <!-- Copies the output dll -->
         <Copy
                 SourceFiles="@(OutputDLL);"
+                DestinationFolder="$(SptModDir)\ExpandedTaskText" />
+
+        <!-- Copies the output pdb -->
+        <Copy
+                Condition="$(Configuration) == DEBUG"
+                SourceFiles="@(OutputPdb);"
                 DestinationFolder="$(SptModDir)\ExpandedTaskText" />
 
         <!-- Copies the resources -->

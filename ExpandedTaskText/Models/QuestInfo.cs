@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using SPTarkov.Server.Core.Models.Common;
 
-namespace ExpandedTaskText;
+namespace ExpandedTaskText.Models;
 
 public record QuestInfo
 {
