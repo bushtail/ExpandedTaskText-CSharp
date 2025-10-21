@@ -43,7 +43,6 @@
     "objectives": [
       {
         "id": "65733e571b7e7ed95fcd2f0c",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -349,7 +348,6 @@
       {},
       {
         "id": "5d9f035086f7741cac4a9713",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -643,7 +641,6 @@
       },
       {
         "id": "5fd9fad9c1ce6b1a3b486d0d",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -728,7 +725,6 @@
       },
       {
         "id": "6863d38fa49de200bca14224",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -765,7 +761,6 @@
     "objectives": [
       {
         "id": "675c3507a06634b5110e3c1a",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -967,7 +962,6 @@
       },
       {
         "id": "5968a06486f7740d14064728",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1003,7 +997,6 @@
       },
       {
         "id": "596762ec86f77426d3687a87",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1227,7 +1220,6 @@
       },
       {
         "id": "5ee0e5a8c321a77fc55084d2",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1240,7 +1232,6 @@
     "objectives": [
       {
         "id": "63929101744e452011470818",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1323,7 +1314,6 @@
       },
       {
         "id": "5968962686f7740e7266d973",
-        "optional": false,
         "requiredKeys": null
       },
       {}
@@ -1724,12 +1714,10 @@
     "objectives": [
       {
         "id": "675c1d6d59b0575973008fc9",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "675c1dbdcca03cb7f61fc735",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1766,7 +1754,6 @@
       },
       {
         "id": "5ac5e18c86f7743ebd6c9575",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1811,7 +1798,6 @@
       },
       {
         "id": "5a28051286f7740eb10bac04",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -1883,7 +1869,6 @@
       },
       {
         "id": "5c94f65286f77455185027ee",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2015,7 +2000,6 @@
       },
       {
         "id": "5a37de5486f7741535394d69",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2148,7 +2132,6 @@
       },
       {
         "id": "5ac61b1486f7743a8f30fc84",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2218,7 +2201,6 @@
       },
       {
         "id": "64f7325739e45b527a7c4302",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2243,7 +2225,6 @@
       },
       {
         "id": "658009db6b313a8a4ed58851",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2312,7 +2293,6 @@
     "objectives": [
       {
         "id": "669fb12eb01ceef19a5b4ebc",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2385,7 +2365,6 @@
       },
       {
         "id": "66aa74571e5e199ecd094f1b",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -2410,7 +2389,6 @@
       },
       {
         "id": "66aba85403e0ee310104287a",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -2508,7 +2486,6 @@
       },
       {
         "id": "596a0eaf86f774576d4c957f",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -2679,7 +2656,6 @@
       },
       {
         "id": "608a94ae1a66564e74191fc6",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -2712,7 +2688,6 @@
       },
       {
         "id": "5a37db0c86f7745b8f4be68a",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3007,7 +2982,6 @@
       },
       {
         "id": "5ee0e722c321a77fc55084d5",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3122,7 +3096,6 @@
       },
       {
         "id": "639da5ec8fe84d33a25a1435",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3135,7 +3108,6 @@
     "objectives": [
       {
         "id": "63ab184ff627f540861d1185",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3726,7 +3698,6 @@
       },
       {
         "id": "5ae4514986f7740e915d218c",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3787,7 +3758,6 @@
       },
       {
         "id": "639c8c875573fd6cc27d99bb",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3906,7 +3876,6 @@
       },
       {
         "id": "608c187853b9dd01a116f480",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3939,7 +3908,6 @@
       },
       {
         "id": "65802bfabac8c53c548fca2a",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -3960,7 +3928,6 @@
       },
       {
         "id": "66aa5be8035c6a410dc570b2",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4100,7 +4067,6 @@
       },
       {
         "id": "64f4fdfa67e11a7c6206de72",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -4296,7 +4262,6 @@
       },
       {
         "id": "62987d43b7bd956bd62a09b3",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4370,7 +4335,6 @@
       },
       {
         "id": "66ab970848ddbe9d4a0c49ab",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -4407,7 +4371,6 @@
       },
       {
         "id": "6756bcb3f93f4c1fc2b2d685",
-        "optional": false,
         "requiredKeys": null
       },
       {}
@@ -4445,7 +4408,6 @@
       },
       {
         "id": "629f4f080f57046e362e6e9e",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4482,7 +4444,6 @@
       },
       {
         "id": "629f1259422dff20ff234b4d",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4551,7 +4512,6 @@
       },
       {
         "id": "639cee16f5765f47cc7f0ea1",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4572,7 +4532,6 @@
       },
       {
         "id": "639cdf9aad9d7e3216668fd0",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4616,7 +4575,6 @@
       },
       {
         "id": "63a511ea30d85e10e375b047",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4633,7 +4591,6 @@
       },
       {
         "id": "63a7daae04d3dc28a52a2109",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4730,7 +4687,6 @@
       },
       {
         "id": "5a68764c86f77474c4269f3c",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4755,7 +4711,6 @@
       },
       {
         "id": "5a68778c86f77423391f38f0",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -4913,7 +4868,6 @@
       },
       {
         "id": "67499a4f03b8295863172dea",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5038,7 +4992,6 @@
       },
       {
         "id": "6744a6b96cefb76fd3f70555",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -5490,7 +5443,6 @@
       },
       {
         "id": "6740b66079ff8ea717dad584",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -5507,7 +5459,6 @@
       },
       {
         "id": "6745c8ee54d6972417ad7bad",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5516,7 +5467,6 @@
       },
       {
         "id": "6745c90842db81af412eae97",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5525,7 +5475,6 @@
       },
       {
         "id": "6745c9623d362cd373b1de93",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5542,7 +5491,6 @@
       },
       {
         "id": "6745c9a86086867a2c723e9d",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -5559,7 +5507,6 @@
       },
       {
         "id": "6745cbee909d2013670a4a61",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5568,7 +5515,6 @@
       },
       {
         "id": "6745cbee909d2013670a4a64",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5577,7 +5523,6 @@
       },
       {
         "id": "6745cbee909d2013670a4a68",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5594,7 +5539,6 @@
       },
       {
         "id": "6745cbee909d2013670a4a70",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -5607,22 +5551,18 @@
     "objectives": [
       {
         "id": "674606bac840f707bea6242f",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "674606ccff406a9f6a28e26f",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "674606f1c63637e54bede3a6",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "6746071002dfd67c0629a379",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5661,7 +5601,6 @@
       },
       {
         "id": "664ef3c238dad5c6686a6d1e",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -5690,7 +5629,6 @@
       },
       {
         "id": "5f03969a51823847c253afa0",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -6134,7 +6072,6 @@
       },
       {
         "id": "5f04983ffbed7a08077b4367",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -6775,7 +6712,6 @@
       },
       {
         "id": "65801b07a26e65a69c2fedd1",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -6799,7 +6735,6 @@
       },
       {
         "id": "65800413f41301adef3c9698",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -6908,7 +6843,6 @@
       },
       {
         "id": "6190464d74169a76c90aa230",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -6993,7 +6927,6 @@
       },
       {
         "id": "639da86bad9d7e3216668fd7",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -7410,7 +7343,6 @@
       },
       {
         "id": "66ab9da7eb102b9bcd08591f",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -7505,7 +7437,6 @@
     "objectives": [
       {
         "id": "5bb60cbc88a45011a8235cc5",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -7716,7 +7647,6 @@
       },
       {
         "id": "66aa61663aa37705c502427c",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -7797,7 +7727,6 @@
       },
       {
         "id": "639dbba35b759c65a3476549",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -7895,7 +7824,6 @@
       },
       {
         "id": "63972c5d61b7754ff93bf3ba",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8032,7 +7960,6 @@
       },
       {
         "id": "62602c89a4eb80027c4f2e0f",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8108,7 +8035,6 @@
       },
       {
         "id": "63972db222ea23711e21aaaa",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8145,27 +8071,22 @@
     "objectives": [
       {
         "id": "6397a2eee5d9c6753c61e2d8",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "6397a3b6f376f0344e45711b",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "6397a47fe5d9c6753c61e2da",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "6397a5cbdcdd126fef173f36",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "65e09d3f0d1442c78274027e",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -8220,7 +8141,6 @@
     "objectives": [
       {
         "id": "63b33cd9862e1142130b610c",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -8275,7 +8195,6 @@
       },
       {
         "id": "6397af5cf376f0344e457120",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8351,7 +8270,6 @@
       },
       {
         "id": "639a79785e3c9b787264d672",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8436,7 +8354,6 @@
       },
       {
         "id": "639c3e21a1c5f814670c35e8",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -8478,7 +8395,6 @@
       },
       {
         "id": "639b002fda859817035a344b",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -9083,52 +8999,42 @@
     "objectives": [
       {
         "id": "5c0e6876d09282029e2fffe0",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5c0e687ad0928202b25db840",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5c13979886f774251443c1a6",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5c13982286f774365a69cc4d",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5c13989886f7747878361a50",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5c1931e686f7747ce71bcbea",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "5dc984ae4b68b15f4825cea5",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "629f08e7d285f377953b2af1",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "63aec66556503c322a190372",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "65e08b7a2f82d184fcf9ef61",
-        "optional": false,
         "requiredKeys": null
       }
     ]
@@ -9814,7 +9720,6 @@
     "objectives": [
       {
         "id": "6848100b00afffa81f09e36b",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -9871,7 +9776,6 @@
     "objectives": [
       {
         "id": "6761f9d718fa62aac3264ff2",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -9936,7 +9840,6 @@
       },
       {
         "id": "6848116061809d65b8503617",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -9997,12 +9900,10 @@
       },
       {
         "id": "68481881f43abfdda205836f",
-        "optional": false,
         "requiredKeys": null
       },
       {
         "id": "68483a05801f8d9e40ac05b1",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -10291,7 +10192,6 @@
     "objectives": [
       {
         "id": "67af727750e1b6f21d9f5511",
-        "optional": false,
         "requiredKeys": null
       },
       {
@@ -10408,7 +10308,6 @@
     "objectives": [
       {
         "id": "666719fc7c5ae40e6adcf43e",
-        "optional": false,
         "requiredKeys": null
       }
     ]
