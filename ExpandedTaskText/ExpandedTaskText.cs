@@ -16,15 +16,16 @@ namespace ExpandedTaskText;
 // Load after EVERYTHING so all custom quests exist
 [Injectable(TypePriority = int.MaxValue)]
 public class ExpandedTaskText(
-    ISptLogger<ExpandedTaskText> logger,
-    DatabaseService databaseService,
-    LocaleService localeService,
-    FileUtil fileUtil,
-    JsonUtil jsonUtil
+        ISptLogger<ExpandedTaskText> logger,
+        DatabaseService databaseService,
+        LocaleService localeService,
+        FileUtil fileUtil,
+        JsonUtil jsonUtil
     ) : IOnLoad
 {
     private List<QuestInfo>? _questInfos;
     private Dictionary<MongoId, GunsmithInfo>? _gunsmithInfos;
+    private EttConfig? _config;
 
     private Dictionary<MongoId, string> _questDescriptionCache = [];
     
@@ -50,6 +51,9 @@ public class ExpandedTaskText(
         
         var gunsmithText = await fileUtil.ReadFileAsync(Path.Combine(EttMetadata.ResourcesDirectory, "GunsmithInfo.json"));
         _gunsmithInfos = jsonUtil.Deserialize<Dictionary<MongoId, GunsmithInfo>>(gunsmithText);
+        
+        var modConfig = await fileUtil.ReadFileAsync(Path.Combine(EttMetadata.ResourcesDirectory, "EttConfig.json"));
+        _config = jsonUtil.Deserialize<EttConfig>(modConfig);
         
         await UpdateAllTaskText();
         
@@ -97,6 +101,12 @@ public class ExpandedTaskText(
     private string BuildNewDescription(QuestInfo info, string originalDescription)
     {
         var sb = new StringBuilder();
+        if (_config == null) throw new NullReferenceException();
+        
+        if (_config.DisplayAfterLore)
+        {
+            sb.Append(originalDescription);
+        }
 
         sb.Append(info.KappaRequired
             ? "This quest is required for Collector\n"
@@ -116,8 +126,11 @@ public class ExpandedTaskText(
             sb.Append(GetGunsmithPartsList(info.Id, gunsmithInfo));
             sb.Append("\n\n");
         }
-        
-        sb.Append(originalDescription);
+
+        if (!_config.DisplayAfterLore)
+        {
+            sb.Append(originalDescription);
+        }
         
         return sb.ToString();
     }
@@ -162,6 +175,7 @@ public class ExpandedTaskText(
     private string GetKeyInfoForQuest(QuestInfo info)
     {
         var result = new List<string>();
+        var alreadyDisplayed = new List<string>();
         
         foreach (var obj in info.QuestObjectives)
         {
@@ -180,6 +194,8 @@ public class ExpandedTaskText(
                 foreach (var key in list)
                 {
                     var keyName = GetLocale($"{key.Id.ToString()} Name");
+                    if (alreadyDisplayed.Contains(keyName)) continue;
+                    alreadyDisplayed.Add(keyName);
                     if (!string.IsNullOrEmpty(keyName))
                     {
                         result.Add($"\n\t{keyName}");
