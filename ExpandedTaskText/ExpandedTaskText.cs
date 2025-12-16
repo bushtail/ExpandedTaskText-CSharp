@@ -178,7 +178,6 @@ public class ExpandedTaskText(
     private string GetKeyInfoForQuest(QuestInfo info)
     {
         var result = new List<string>();
-        var alreadyDisplayed = new List<string>();
         
         foreach (var obj in info.QuestObjectives)
         {
@@ -197,12 +196,11 @@ public class ExpandedTaskText(
                 foreach (var key in list)
                 {
                     var keyName = GetLocale($"{key.Id.ToString()} Name");
-                    if (alreadyDisplayed.Contains(keyName)) continue;
-                    alreadyDisplayed.Add(keyName);
-                    if (!string.IsNullOrEmpty(keyName))
+                    if (result.Contains(keyName) || string.IsNullOrEmpty(keyName))
                     {
-                        result.Add($"\n\t{keyName}");
+                        continue;
                     }
+                    result.Add($"\n\t{keyName}");
                 }
             }
         }
